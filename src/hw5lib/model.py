@@ -24,7 +24,7 @@ class DiabetesModel:
             feature_columns: List of column names to use as features
             target_column: Name of the target column
             hyperparameters: Optional dictionary of model hyperparameters
-                           (e.g., {'n_estimators': 100, 'max_depth': 5})
+            (e.g., {'n_estimators': 100, 'max_depth': 5})
         """
         # Private attributes (convention: prefix with _)
         self._feature_columns = feature_columns
