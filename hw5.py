@@ -68,9 +68,27 @@ class Patient:
                 if symptom in self.symptoms:
                     probability += 0.1  # adding 10% for each symptom
 
-            return probability
+            return min(probability, 1.0)
 
+"""
+if __name__ == "__main__":
+    print("=== TESTING PATIENT CLASS ===")
+    # Create a patient with some symptoms
+    p1 = Patient("Alice", ["fever", "cough"])
+    print(f"Patient: {p1.name}")
+    print("Symptoms:", p1.symptoms)
 
+    # Test probability without test
+    print("Covid probability (no test):", p1.has_covid())  # Expect 0.05 + 0.1 + 0.1 = 0.25
+
+    # Add a covid test (positive)
+    p1.add_test("covid", True)
+    print("Covid probability (positive test):", p1.has_covid())  # Expect 0.99
+
+    # Add a covid test (negative)
+    p1.add_test("covid", False)
+    print("Covid probability (negative test):", p1.has_covid())  # Expect 0.01
+"""
 ######################
 
 # 2. In this exercise you will make an English Deck class made of Card classes
@@ -123,7 +141,16 @@ class Deck:
         print(f"Drew this card: {card}")
         return card
 
-
+"""
+if __name__ == "__main__":
+    print("\n=== TESTING CARD & DECK CLASSES ===")
+    deck = Deck()
+    print(f"Deck size before shuffle: {len(deck.cards)}")  # Expect 52
+    deck.shuffle()
+    card1 = deck.draw()  # Should print a random card
+    print("Card drawn object:", card1)
+    print(f"Deck size after draw: {len(deck.cards)}")  # Expect 51
+"""
 ###################
 
 # 3. In this exercise you will create an interface that will serve as template
@@ -216,3 +243,26 @@ class Circle(PlaneFigure):
         # Area = π * radius^2
 
         return math.pi * (self.radius**2)
+
+"""
+if __name__ == "__main__":
+    print("\n=== TESTING PLANEFIGURE CLASSES ===")
+
+    # Triangle test
+    t = Triangle(base=3, c1=4, c2=5, h=2.5)
+    print(f"Triangle perimeter: {t.compute_perimeter()}")  # Expect 12
+    print(f"Triangle surface: {t.compute_surface()}")      # Expect 3.75
+
+    # Rectangle test
+    r = Rectangle(a=4, b=6)
+    print(f"Rectangle perimeter: {r.compute_perimeter()}")  # Expect 20
+    print(f"Rectangle surface: {r.compute_surface()}")      # Expect 24
+
+    # Circle test
+    c = Circle(radius=3)
+    print(f"Circle perimeter: {c.compute_perimeter():.2f}")  # Expect about 18.85
+    print(f"Circle surface: {c.compute_surface():.2f}")      # Expect about 28.27
+"""
+
+
+
