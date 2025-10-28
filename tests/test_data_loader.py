@@ -1,5 +1,3 @@
-import sys
-sys.path.append(r"C:\Users\sffra\Downloads\BSE 2025-2026\ComputingForDataScienceHW5\src")
 
 # Test each import one by one
 print("Testing data.py...")
